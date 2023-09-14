@@ -1,0 +1,43 @@
+<h1>DOM Manipulation</h1>
+<h2>NgIf Directive</h2>
+<!-- <ng-template [hnsIf]="flag">
+  <div>showed!</div>
+</ng-template> -->
+
+<div *hnsIf="flag">showed!</div>
+<button (click)="onClick()">Click</button>
+
+<hr>
+<h2>NgFor w/ Context Component</h2>
+<app-child [info]="template" [list]="list"></app-child>
+
+<div>
+  <ng-template let-item let-function="func" #template>
+    <div (click)="function(item)">{{ item }}</div>
+  </ng-template>
+</div>
+
+<hr>
+<h2>NgFor Directive</h2>
+<!-- <ng-container *ngFor="let item of list;let index = index">{{ item }}</ng-container> -->
+<!-- <ng-container ngFor [ngForOf]="list" let-item let-index="index">{{ item }}</ng-container> -->
+
+<!-- <ng-template hnsFor [hnsForFrom]="list" let-item let-index="index">{{ item }} {{ index }}</ng-template> -->
+<div *hnsFor="let item from list; let index = index">
+  {{ item }} {{ index }}
+</div>
+
+<hr>
+<h2>NgSwitch Directive</h2>
+
+<!-- <ng-container [ngSwitch]="value">
+  <div *ngSwitchCase="'A'">AAA</div>
+  <div *ngSwitchCase="'B'">BBB</div>
+</ng-container> -->
+
+<ng-container [hnsSwitch]="value">
+  <ng-container *hnsSwitchCase="'A'"><div>AAA</div></ng-container>
+  <ng-container *hnsSwitchCase="'B'"><div>BBB</div></ng-container>
+</ng-container>
+
+<button (click)="toggle()">Click</button>
